@@ -1,0 +1,23 @@
+{
+    "name": "rubenromao/customorderattribute",
+    "description": "Custom Order Attribute",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "require": {
+        "magento/framework": "*",
+        "magento/module-backend": "*",
+        "magento/module-payment": "*",
+        "magento/module-sales": "*",
+        "magento/module-customer": "*",
+        "magento/module-ui": "*",
+        "magento/module-store": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "RubenRomao\\CustomOrderAttribute\\": ""
+        }
+    }
+}
