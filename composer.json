@@ -2,7 +2,7 @@
     "name": "rubenromao/module-order-extension-attribute",
     "description": "Order Custom Extension Attribute",
     "type": "magento2-module",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "require": {
         "magento/framework": "*",
         "magento/module-backend": "*",
