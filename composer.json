@@ -1,16 +1,13 @@
 {
-    "name": "rubenromao/orderattribute",
-    "description": "Order Attribute",
+    "name": "rubenromao/module-order-extension-attribute",
+    "description": "Order Custom Extension Attribute",
     "type": "magento2-module",
     "version": "1.0.0",
     "require": {
         "magento/framework": "*",
         "magento/module-backend": "*",
-        "magento/module-payment": "*",
         "magento/module-sales": "*",
-        "magento/module-customer": "*",
-        "magento/module-ui": "*",
-        "magento/module-store": "*"
+        "magento/module-ui": "*"
     },
     "autoload": {
         "files": [
