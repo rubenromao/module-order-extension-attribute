@@ -1,6 +1,6 @@
 {
-    "name": "rubenromao/customorderattribute",
-    "description": "Custom Order Attribute",
+    "name": "rubenromao/orderattribute",
+    "description": "Order Attribute",
     "type": "magento2-module",
     "version": "1.0.0",
     "require": {
@@ -17,7 +17,7 @@
             "registration.php"
         ],
         "psr-4": {
-            "RubenRomao\\CustomOrderAttribute\\": ""
+            "RubenRomao\\OrderAttribute\\": ""
         }
     }
 }

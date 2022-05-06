@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
     <table name="sales_order" resource="default">
-        <column xsi:type="varchar" name="custom_order_attribute" nullable="true" length="255" comment="Custom Order Attribute"/>
+        <column xsi:type="varchar" name="order_attribute" default="yes" nullable="true" length="255" comment="Order Custom Extension Attribute"/>
     </table>
     <table name="sales_order_grid" resource="default">
-        <column xsi:type="varchar" name="custom_order_attribute" nullable="true" length="255" comment="Custom Order Attribute"/>
+        <column xsi:type="varchar" name="order_attribute" default="yes" nullable="true" length="255" comment="Order Custom Extension Attribute"/>
     </table>
 </schema>

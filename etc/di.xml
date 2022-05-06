@@ -1,16 +1,11 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+    <!-- Sync the sales_order table with the sales_order_grid table -->
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
         <arguments>
-            <argument name="collections" xsi:type="array">
-                <item name="ruben_orders_grid_data_source" xsi:type="string">Magento\Sales\Model\ResourceModel\Order\Grid\Collection</item>
+            <argument name="columns" xsi:type="array">
+                <item name="order_attribute" xsi:type="string">sales_order.order_attribute</item>
             </argument>
         </arguments>
-    </type>
-    <type name="Magento\Sales\Block\Adminhtml\Order\View">
-        <plugin disabled="false" name="ruben_custom_order_grid_order_view_back" sortOrder="10" type="RubenRomao\CustomOrderAttribute\Plugin\Magento\Sales\Block\Adminhtml\Order\View"/>
-    </type>
-    <type name="Magento\Sales\Api\OrderRepositoryInterface">
-        <plugin disabled="false" name="ordercomment_extension_attribute" type="RubenRomao\CustomOrderAttribute\Plugin\OrderRepository" />
-    </type>
+    </virtualType>
 </config>

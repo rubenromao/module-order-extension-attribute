@@ -1,11 +1,11 @@
 <?php
 /**
- * @package RubenRomao_CustomOrderAttribute
+ * @package RubenRomao_OrderAttribute
  * @autor rubenromao@gmail.com
  */
 declare(strict_types=1);
 
-namespace RubenRomao\CustomOrderAttribute\Plugin;
+namespace RubenRomao\OrderAttribute\Plugin;
 
 use Magento\Sales\Api\Data\OrderExtensionFactory;
 use Magento\Sales\Api\Data\OrderInterface;
@@ -13,14 +13,14 @@ use Magento\Sales\Api\Data\OrderSearchResultInterface;
 use Magento\Sales\Api\OrderRepositoryInterface;
 
 /**
- * Add the extension attribute to the Get and GetList order repository.
+ * Add the custom extension attribute 'order_attribute' to the Get and GetList order repository.
  */
 class OrderRepository
 {
     /**
      * Order Comment field name
      */
-    protected const FIELD_NAME = 'custom_order_attribute';
+    protected const FIELD_NAME = 'order_attribute';
 
     /**
      * Order Extension Attributes Factory
@@ -41,7 +41,7 @@ class OrderRepository
     }
 
     /**
-     * Add "order_comment" extension attribute
+     * Add "order_attribute" extension attribute
      * to order data object to make it accessible through API data.
      *
      * @param OrderRepositoryInterface $subject
@@ -53,28 +53,31 @@ class OrderRepository
         $customAttribute = $order->getData(self::FIELD_NAME);
         $extensionAttributes = $order->getExtensionAttributes();
         $extensionAttributes = $extensionAttributes ?: $this->extensionFactory->create();
-        $extensionAttributes->getCustomOrderAttribute($customAttribute);
+        $extensionAttributes->getOrderAttribute($customAttribute);
         $order->setExtensionAttributes($extensionAttributes);
 
         return $order;
     }
 
     /**
-     * Add "order_comment" extension attribute
-     * to order data object to make it accessible in API order list.
+     * Add "order_attribute" extension attribute
+     * to order data object to make it accessible through API order list.
      *
      * @param OrderRepositoryInterface $subject
      * @param OrderSearchResultInterface $searchResult
      * @return OrderSearchResultInterface
      */
-    public function afterGetList(OrderRepositoryInterface $subject, OrderSearchResultInterface $searchResult): OrderSearchResultInterface
+    public function afterGetList(
+        OrderRepositoryInterface $subject,
+        OrderSearchResultInterface $searchResult
+    ): OrderSearchResultInterface
     {
         $orders = $searchResult->getItems();
         foreach ($orders as &$order) {
             $customAttribute = $order->getData(self::FIELD_NAME);
             $extensionAttributes = $order->getExtensionAttributes();
             $extensionAttributes = $extensionAttributes ?: $this->extensionFactory->create();
-            $extensionAttributes->setCustomOrderAttribute($customAttribute);
+            $extensionAttributes->setOrderAttribute($customAttribute);
             $order->setExtensionAttributes($extensionAttributes);
         }
 
