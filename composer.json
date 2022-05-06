@@ -16,5 +16,11 @@
         "psr-4": {
             "RubenRomao\\OrderAttribute\\": ""
         }
+    },
+    "repositories": {
+        "rubenromao-module-order-extension-attribute": {
+            "type": "vcs",
+            "url": "git@github.com:rubenromao/module-order-extension-attribute.git"
+        }
     }
 }
