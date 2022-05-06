@@ -1,5 +1,5 @@
 # module-order-extension-attribute
-M2.4.4 module to add an ‘attribute/field’ with value string "yes/no" to the sales order and add it to the sales order grid.
+Magento 2.4.4 module to add an ‘attribute’ with a random value "yes/no" to the sales order and show it in the sales order grid.
 
 # Installation
 composer require rubenromao/module-order-extension-attribute
